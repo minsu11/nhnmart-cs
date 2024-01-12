@@ -8,3 +8,5 @@
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 m
 =src/main/java/com/nhnacademy/springmvc/config/RootConfig.java,5/1/518663240666a4a88bf9d8594ac54afaadf79cb5
+`
+0src/main/java/com/nhnacademy/springmvc/Base.java,5/c/5c77fe4fc53fcfe5fcfecbd0419f28ed086e86f2
