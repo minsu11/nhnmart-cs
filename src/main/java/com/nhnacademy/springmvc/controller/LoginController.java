@@ -1,6 +1,8 @@
 package com.nhnacademy.springmvc.controller;
 
+import com.nhnacademy.springmvc.exception.LogoutException;
 import com.nhnacademy.springmvc.repository.CustomerRepository;
+import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -36,12 +38,25 @@ public class LoginController {
             HttpSession session = request.getSession();
             session.setAttribute("customerId", id);
             session.setMaxInactiveInterval(1800);
-            modelMap.addAttribute("id", session);
+            modelMap.addAttribute("loginState", true);
             return "thymeleaf/customerForm";
         }
-
-
         return "thymeleaf/error";
+    }
+
+    @GetMapping("logout")
+    public String doLogout(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            ModelMap modelMap) {
+        HttpSession session = request.getSession();
+        if (Objects.nonNull(session.getAttribute("customerId"))) {
+            session.removeAttribute("customerId");
+            modelMap.addAttribute("loginState", false);
+            return "thymeleaf/loginForm";
+        }
+        throw new LogoutException();
+
     }
 
 }
