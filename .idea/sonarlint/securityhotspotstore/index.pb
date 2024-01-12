@@ -18,3 +18,5 @@ u
 Esrc/main/java/com/nhnacademy/springmvc/controller/BaseController.java,a/9/a90546190f8aa949539433146c5d50bb84e26e75
 m
 =src/main/java/com/nhnacademy/springmvc/FilterInitializer.java,4/a/4ac45108b1df12b85ab33236a3c1c32dc6dbacff
+k
+;src/main/java/com/nhnacademy/springmvc/domain/Customer.java,2/6/260c22bd6cfa51990dd2bded549787abb34af349
