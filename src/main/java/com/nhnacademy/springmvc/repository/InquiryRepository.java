@@ -4,4 +4,8 @@ import com.nhnacademy.springmvc.domain.Inquiry;
 
 public interface InquiryRepository {
     Inquiry registerInquiry(String content);
+
+    boolean deleteInquiry(Inquiry inquiry);
+
+    
 }

@@ -20,7 +20,8 @@ public class Inquiry {
         this.date = date;
     }
 
-    private Inquiry create(long id, InquiryCategory inquiryCategory, String postContent, Date date) {
+    public Inquiry create(long id, InquiryCategory inquiryCategory, String postContent, Date date) {
         return new Inquiry(id, inquiryCategory, postContent, date);
     }
+
 }
