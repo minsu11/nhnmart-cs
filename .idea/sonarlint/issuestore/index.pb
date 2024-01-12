@@ -12,3 +12,5 @@ m
 0src/main/java/com/nhnacademy/springmvc/Base.java,5/c/5c77fe4fc53fcfe5fcfecbd0419f28ed086e86f2
 m
 =src/main/java/com/nhnacademy/springmvc/WebAppInitializer.java,a/4/a422e6ba9e93a07e4803f2e981138ba92f7de2d0
+l
+<src/main/java/com/nhnacademy/springmvc/config/WebConfig.java,4/0/4079cd9d3c17b8136e6a082b3e6071e157063487
