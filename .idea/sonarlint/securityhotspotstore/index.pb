@@ -20,3 +20,5 @@ m
 =src/main/java/com/nhnacademy/springmvc/FilterInitializer.java,4/a/4ac45108b1df12b85ab33236a3c1c32dc6dbacff
 k
 ;src/main/java/com/nhnacademy/springmvc/domain/Customer.java,2/6/260c22bd6cfa51990dd2bded549787abb34af349
+g
+7src/main/java/com/nhnacademy/springmvc/domain/Role.java,b/6/b62bb7327469fd9af5b3d6bbf17fd62f0b73c66d
