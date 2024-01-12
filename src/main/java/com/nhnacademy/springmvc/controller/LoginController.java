@@ -1,5 +1,7 @@
 package com.nhnacademy.springmvc.controller;
 
+import com.nhnacademy.springmvc.domain.Customer;
+import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.exception.LogoutException;
 import com.nhnacademy.springmvc.repository.CustomerRepository;
 import java.util.Objects;
@@ -38,8 +40,12 @@ public class LoginController {
             HttpSession session = request.getSession();
             session.setAttribute("customerId", id);
             session.setMaxInactiveInterval(1800);
-            modelMap.addAttribute("loginState", true);
-            return "thymeleaf/customerForm";
+
+            Customer customer = customerRepository.getCustomer(id);
+            String path = customer.getRole().equals(Role.ADMIN) ? "thymeleaf/adminForm" : "thymeleaf/customerForm";
+
+            modelMap.addAttribute("id", id);
+            return path;
         }
         return "thymeleaf/error";
     }
