@@ -6,7 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/cs")
@@ -28,17 +31,17 @@ public class LoginController {
                           @RequestParam("password") String password,
                           HttpServletRequest request,
                           HttpServletResponse response,
-                          ModelMap modelMap){
-        if(customerRepository.matches(id,password)){
+                          ModelMap modelMap) {
+        if (customerRepository.matches(id, password)) {
             HttpSession session = request.getSession();
-            session.setAttribute("customerId",id);
+            session.setAttribute("customerId", id);
             session.setMaxInactiveInterval(1800);
             modelMap.addAttribute("id", session);
-
+            return "thymeleaf/loginForm";
         }
 
 
-        return
+        return "thymeleaf/error";
     }
 
 }
