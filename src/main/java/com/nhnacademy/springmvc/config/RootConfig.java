@@ -4,6 +4,8 @@ import com.nhnacademy.springmvc.Base;
 import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.repository.CustomerRepository;
 import com.nhnacademy.springmvc.repository.CustomerRepositoryImpl;
+import com.nhnacademy.springmvc.repository.InquiryRepository;
+import com.nhnacademy.springmvc.repository.InquiryRepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +26,13 @@ public class RootConfig {
 
         return customerRepository;
 
+    }
+
+    @Bean
+    public InquiryRepository inquiryRepository() {
+        InquiryRepository inquiryRepository = new InquiryRepositoryImpl();
+
+        return inquiryRepository;
     }
 
 }
