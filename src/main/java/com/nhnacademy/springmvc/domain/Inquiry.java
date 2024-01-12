@@ -1,6 +1,5 @@
 package com.nhnacademy.springmvc.domain;
 
-import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,10 +9,10 @@ public class Inquiry {
     private String title;
     private InquiryCategory inquiryCategory;
     private String postContent;
-    private Date date;
+    private String date;
     private String name;
 
-    private Inquiry(String title, InquiryCategory inquiryCategory, String postContent, Date date, String name) {
+    private Inquiry(String title, InquiryCategory inquiryCategory, String postContent, String date, String name) {
         this.title = title;
         this.inquiryCategory = inquiryCategory;
         this.postContent = postContent;
@@ -21,7 +20,7 @@ public class Inquiry {
         this.name = name;
     }
 
-    public static Inquiry create(String title, InquiryCategory inquiryCategory, String postContent, Date date, String name) {
+    public static Inquiry create(String title, InquiryCategory inquiryCategory, String postContent, String date, String name) {
         return new Inquiry(title, inquiryCategory, postContent, date, name);
     }
 }
