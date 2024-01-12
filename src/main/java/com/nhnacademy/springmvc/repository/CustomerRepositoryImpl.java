@@ -3,9 +3,9 @@ package com.nhnacademy.springmvc.repository;
 import com.nhnacademy.springmvc.domain.Customer;
 import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.exception.CustomerAlreadyExistsException;
-import com.nhnacademy.springmvc.exception.CustomerNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class CustomerRepositoryImpl implements CustomerRepository {
 
@@ -17,6 +17,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
+    public boolean matches(String id, String password) {
+        return Optional.ofNullable(getCustomer(id))
+                .map(customer -> customer.getPassword().equals(password))
+                .orElse(false);
+    }
+
+    @Override
     public Customer register(String id, String password, String name, Role role) {
         if (exists(id)) {
             throw new CustomerAlreadyExistsException();
@@ -24,14 +31,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         Customer customer = Customer.create(id, password);
         customer.setName(name);
         customer.setRole(role);
+
+        customerMap.put(id, customer);
         return customer;
     }
 
     @Override
     public Customer getCustomer(String id) {
-        if (exists(id)) {
-            throw new CustomerNotFoundException();
-        }
-        return customerMap.get(id);
+        return exists(id) ? customerMap.get(id) : null;
     }
 }
