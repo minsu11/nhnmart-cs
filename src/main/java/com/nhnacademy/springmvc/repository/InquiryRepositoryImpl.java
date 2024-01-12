@@ -1,4 +1,5 @@
 package com.nhnacademy.springmvc.repository;
 
-public interface InquiryRepository {
+public class InquiryRepositoryImpl {
+
 }
