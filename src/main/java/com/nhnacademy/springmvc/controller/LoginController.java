@@ -37,7 +37,7 @@ public class LoginController {
             session.setAttribute("customerId", id);
             session.setMaxInactiveInterval(1800);
             modelMap.addAttribute("id", session);
-            return "thymeleaf/loginForm";
+            return "thymeleaf/customerForm";
         }
 
 

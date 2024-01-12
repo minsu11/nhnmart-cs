@@ -16,7 +16,11 @@ public class RootConfig {
     @Bean
     public CustomerRepository customerRepository() {
         CustomerRepository customerRepository = new CustomerRepositoryImpl();
-        customerRepository.register("admin", "1234", "adnin", Role.ADMIN);
+        customerRepository.register("admin", "1234", "admin", Role.ADMIN);
+        customerRepository.register("customer1", "1234", "customer1", Role.CUSTOMER);
+        customerRepository.register("admin1", "1234", "admin", Role.ADMIN);
+        customerRepository.register("admin2", "1234", "admin", Role.ADMIN);
+        customerRepository.register("admin3", "1234", "admin", Role.ADMIN);
 
         return customerRepository;
 
