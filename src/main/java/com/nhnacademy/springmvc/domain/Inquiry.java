@@ -10,17 +10,23 @@ public class Inquiry {
     private InquiryCategory inquiryCategory;
     private String postContent;
     private String date;
-    private String name;
+    private String customerName;
+    private String customerId;
+    private boolean answerCheck;
 
-    private Inquiry(String title, InquiryCategory inquiryCategory, String postContent, String date, String name) {
+
+    private Inquiry(String title, InquiryCategory inquiryCategory, String postContent, String date, String customerName, String customerId) {
         this.title = title;
         this.inquiryCategory = inquiryCategory;
         this.postContent = postContent;
         this.date = date;
-        this.name = name;
+        this.customerName = customerName;
+        this.customerId = customerId;
+        this.answerCheck = false;
     }
 
-    public static Inquiry create(String title, InquiryCategory inquiryCategory, String postContent, String date, String name) {
-        return new Inquiry(title, inquiryCategory, postContent, date, name);
+    public static Inquiry create(String title, InquiryCategory inquiryCategory, String postContent, String date, String customerName, String customerId) {
+        return new Inquiry(title, inquiryCategory, postContent, date, customerName, customerId);
     }
+
 }

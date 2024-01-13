@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyPage</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>제목</th>
+        <th>분류</th>
+        <th>작성일시</th>
+        <th>답변여부</th>
+    </tr>
+    <tr th:each="inquiry : ${inquiryList}">
+        <td th:text="${inquiry.title}"></td>
+        <td th:text="${inquiry.inquiryCategory}"></td>
+        <td th:text="${inquiry.date}"></td>
+        <td th:if="${inquiry.answerCheck}">답변 완료</td>
+        <td th:if="${!inquiry.answerCheck}">답변 없음</td>
+
+
+    </tr>
+</table>
+</body>
+</html>

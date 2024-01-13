@@ -50,7 +50,7 @@ public class LoginController {
         return "thymeleaf/error";
     }
 
-    @GetMapping("logout")
+    @GetMapping("/logout")
     public String doLogout(
             HttpServletRequest request,
             HttpServletResponse response,

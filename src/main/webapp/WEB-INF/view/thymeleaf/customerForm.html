@@ -6,8 +6,16 @@
 </head>
 <body>
 <span>내 문의 목록</span>
-<form method="post" action="/cs/loginout">
-    <input type="submit">
+<form method="get" action="/cs/">
+    <button type="submit">내 문의 목록</button>
+</form>
+
+<form method="post" action="/cs/inquiry">
+    <button type="submit" name="registerButton">문의하기</button>
+</form>
+
+<form method="get" action="/cs/logout">
+    <button type="submit" name="logoutButton">로그아웃</button>
 </form>
 
 

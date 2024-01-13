@@ -6,7 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class InquiryRepositoryImpl implements InquiryRepository {
     private List<Inquiry> inquiryList = new ArrayList<>();
 
@@ -22,9 +24,10 @@ public class InquiryRepositoryImpl implements InquiryRepository {
 
     @Override
     public Inquiry registerInquiry(String title, InquiryCategory inquiryCategory,
-                                   String postContent, String name) {
+                                   String postContent, String name, String customerId) {
         String date = dateFormatThreadLocal.get().format(new Date());
-        Inquiry inquiry = Inquiry.create(title, inquiryCategory, postContent, date, name);
+        log.debug("date:{}", date);
+        Inquiry inquiry = Inquiry.create(title, inquiryCategory, postContent, date, name, customerId);
         inquiryList.add(inquiry);
         return inquiry;
     }
@@ -32,5 +35,16 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     @Override
     public List<Inquiry> getInquiryList() {
         return this.inquiryList;
+    }
+
+    @Override
+    public List<Inquiry> matchInquiryList(String customerId) {
+        List<Inquiry> matchInquiryList = new ArrayList<>();
+        for (Inquiry inquiry : inquiryList) {
+            if (inquiry.getCustomerId().equals(customerId)) {
+                matchInquiryList.add(inquiry);
+            }
+        }
+        return matchInquiryList;
     }
 }

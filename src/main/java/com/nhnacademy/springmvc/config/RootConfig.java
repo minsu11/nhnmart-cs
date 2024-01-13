@@ -1,6 +1,7 @@
 package com.nhnacademy.springmvc.config;
 
 import com.nhnacademy.springmvc.Base;
+import com.nhnacademy.springmvc.domain.InquiryCategory;
 import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.repository.CustomerRepository;
 import com.nhnacademy.springmvc.repository.CustomerRepositoryImpl;
@@ -31,7 +32,10 @@ public class RootConfig {
     @Bean
     public InquiryRepository inquiryRepository() {
         InquiryRepository inquiryRepository = new InquiryRepositoryImpl();
-
+        inquiryRepository.registerInquiry("제목1", InquiryCategory.OTHER_INQUIRIES, "내용1", "customer1", "customer1");
+        inquiryRepository.registerInquiry("제목2", InquiryCategory.COMPLIMENT, "내용2", "customer1", "customer1");
+        inquiryRepository.registerInquiry("제목3", InquiryCategory.REFUND_EXCHANGE, "내용3", "customer1", "customer1");
+        inquiryRepository.registerInquiry("제목4", InquiryCategory.PROPOSAL, "내용4", "customer1", "customer1");
         return inquiryRepository;
     }
 

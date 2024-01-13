@@ -9,7 +9,9 @@ public interface InquiryRepository {
     Inquiry getInquiry(int inquiryId);
 
     Inquiry registerInquiry(String title, InquiryCategory inquiryCategory,
-                            String postContent, String name);
+                            String postContent, String name, String customerId);
 
     List<Inquiry> getInquiryList();
+
+    List<Inquiry> matchInquiryList(String customerId);
 }

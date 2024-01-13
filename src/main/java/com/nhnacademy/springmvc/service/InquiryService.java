@@ -1,6 +1,7 @@
 package com.nhnacademy.springmvc.service;
 
-public interface InquiryService {
-    
+import com.nhnacademy.springmvc.domain.Inquiry;
 
+public interface InquiryService {
+    boolean register(Inquiry inquiry);
 }
