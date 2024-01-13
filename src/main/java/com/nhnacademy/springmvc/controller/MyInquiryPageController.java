@@ -10,16 +10,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
 @RequestMapping("/cs")
-public class InquiryController { // 문의 글 등록
+public class MyInquiryPageController { // 문의 글 등록
     private InquiryRepository inquiryRepository;
 
-    public InquiryController(InquiryRepository inquiryRepository) {
+    public MyInquiryPageController(InquiryRepository inquiryRepository) {
         this.inquiryRepository = inquiryRepository;
     }
 
@@ -37,9 +36,4 @@ public class InquiryController { // 문의 글 등록
         return "thymeleaf/myInquiryForm";
     }
 
-    @PostMapping("/inquiry")
-    public String registerInquiry() {
-
-        return "thymeleaf/customerForm";
-    }
 }

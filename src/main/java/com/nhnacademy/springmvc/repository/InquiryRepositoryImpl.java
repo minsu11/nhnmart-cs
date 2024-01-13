@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class InquiryRepositoryImpl implements InquiryRepository {
     private List<Inquiry> inquiryList = new ArrayList<>();
+    private int inquiryId = 1;
 
     private ThreadLocal<SimpleDateFormat> dateFormatThreadLocal = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd"));
 
@@ -26,9 +27,9 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     public Inquiry registerInquiry(String title, InquiryCategory inquiryCategory,
                                    String postContent, String name, String customerId) {
         String date = dateFormatThreadLocal.get().format(new Date());
-        log.debug("date:{}", date);
-        Inquiry inquiry = Inquiry.create(title, inquiryCategory, postContent, date, name, customerId);
+        Inquiry inquiry = Inquiry.create(inquiryId, title, inquiryCategory, postContent, date, name, customerId);
         inquiryList.add(inquiry);
+        inquiryId += 1;
         return inquiry;
     }
 
