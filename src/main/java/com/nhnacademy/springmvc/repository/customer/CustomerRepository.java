@@ -1,4 +1,4 @@
-package com.nhnacademy.springmvc.repository;
+package com.nhnacademy.springmvc.repository.customer;
 
 import com.nhnacademy.springmvc.domain.Customer;
 import com.nhnacademy.springmvc.domain.Role;

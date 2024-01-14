@@ -1,7 +1,7 @@
 package com.nhnacademy.springmvc.controller;
 
 import com.nhnacademy.springmvc.domain.Inquiry;
-import com.nhnacademy.springmvc.repository.InquiryRepository;
+import com.nhnacademy.springmvc.repository.inquiry.InquiryRepository;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

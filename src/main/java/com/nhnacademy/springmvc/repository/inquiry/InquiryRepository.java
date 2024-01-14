@@ -1,4 +1,4 @@
-package com.nhnacademy.springmvc.repository;
+package com.nhnacademy.springmvc.repository.inquiry;
 
 import com.nhnacademy.springmvc.domain.Inquiry;
 import com.nhnacademy.springmvc.domain.InquiryCategory;

@@ -1,8 +1,8 @@
 package com.nhnacademy.springmvc.service;
 
 import com.nhnacademy.springmvc.domain.Inquiry;
-import com.nhnacademy.springmvc.repository.AnswerRepository;
-import com.nhnacademy.springmvc.repository.InquiryRepository;
+import com.nhnacademy.springmvc.repository.answer.AnswerRepository;
+import com.nhnacademy.springmvc.repository.inquiry.InquiryRepository;
 import org.springframework.stereotype.Service;
 
 @Service

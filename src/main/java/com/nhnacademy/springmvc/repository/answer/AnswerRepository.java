@@ -1,4 +1,4 @@
-package com.nhnacademy.springmvc.repository;
+package com.nhnacademy.springmvc.repository.answer;
 
 import com.nhnacademy.springmvc.domain.Answer;
 import java.util.Map;

@@ -6,23 +6,19 @@
 </head>
 <body>
 문의하기 폼
-<form method="post" action="/student/register">
-    제목<input type="text" name="id"/><br/>
+<form method="post" action="/cs/inquiry" enctype="multipart/form-data">
+    제목<input type="text" name="title"/><br/>
+    분류<input type="text" name="inquiryCategory"/><br/>
+    본문<textarea name="content" rows="10" cols="80"></textarea><br/>
+    작성자
+    <input type="file" name="file"/><br/>
+    <button type="submit">등록하기</button>
 
-    분류<input type="text" name="password"/><br/>
-
-    본문<input type="text" name="name"/><br/>
-
-    작성날짜<input type="text" name="email"/><br/>
-
-    작성자<input type="text" name="score"/><br/>
-
-    <textarea name="comment" rows="10" cols="80"></textarea><br/>
-    <input type="submit"/>
 </form>
 
-<form method="get" action="/">
-    <button type="button">취소</button>
+
+<form method="get" action="/cs/">
+    <button type="submit">취소</button>
 </form>
 </body>
 </html>

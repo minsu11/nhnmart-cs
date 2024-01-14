@@ -18,5 +18,5 @@ public class InquiryRegisterRequest {
     @Length(min = 0, max = 40_000)
     String content;
 
-
+    String inquiryCategory;
 }

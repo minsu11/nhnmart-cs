@@ -3,7 +3,7 @@ package com.nhnacademy.springmvc.controller;
 import com.nhnacademy.springmvc.domain.Customer;
 import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.exception.LogoutException;
-import com.nhnacademy.springmvc.repository.CustomerRepository;
+import com.nhnacademy.springmvc.repository.customer.CustomerRepository;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
