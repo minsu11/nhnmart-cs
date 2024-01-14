@@ -5,6 +5,7 @@ import com.nhnacademy.springmvc.domain.InquiryCategory;
 import java.util.List;
 
 public interface InquiryRepository {
+    boolean exists(int inquiryId);
 
     Inquiry getInquiry(int inquiryId);
 

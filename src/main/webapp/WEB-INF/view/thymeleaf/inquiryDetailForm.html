@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:text="${inquiry.title}"></span><br/>
+<span th:text="${inquiry.inquiryCategory}"></span><br/>
+<span th:text="${inquiry.postContent}"></span><br/>
+<span th:text="${inquiry.date}"></span><br/>
+<span th:text="${inquiry.customerName}"/><br/>
+<span th:text="${inquiry.customerId}"/> <br/>
+<span th:if="${inquiry.answerCheck}">답변 완료</span><br/>
+<span th:if="${!inquiry.answerCheck}">답변 없음</span><br/>
+
+</body>
+</html>

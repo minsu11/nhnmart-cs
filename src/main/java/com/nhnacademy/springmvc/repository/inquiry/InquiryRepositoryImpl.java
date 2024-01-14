@@ -11,9 +11,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class InquiryRepositoryImpl implements InquiryRepository {
     private List<Inquiry> inquiryList = new ArrayList<>();
-    private int inquiryId = 1;
+    private int inquiryId = 0;
 
     private ThreadLocal<SimpleDateFormat> dateFormatThreadLocal = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd"));
+
+    @Override
+    public boolean exists(int inquiryId) {
+        return inquiryId >= 0 && inquiryId < inquiryList.size();
+    }
 
     @Override
     public Inquiry getInquiry(int index) {

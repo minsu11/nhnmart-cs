@@ -13,7 +13,7 @@ public class Inquiry {
     private String date;
     private String customerName;
     private String customerId;
-    private boolean answerCheck;
+    private Boolean answerCheck;
 
 
     private Inquiry(int inquiryId, String title, InquiryCategory inquiryCategory, String postContent, String date, String customerName, String customerId) {

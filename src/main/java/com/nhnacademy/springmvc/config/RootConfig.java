@@ -1,6 +1,7 @@
 package com.nhnacademy.springmvc.config;
 
 import com.nhnacademy.springmvc.Base;
+import com.nhnacademy.springmvc.domain.Answer;
 import com.nhnacademy.springmvc.domain.InquiryCategory;
 import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.repository.answer.AnswerRepository;
@@ -9,6 +10,8 @@ import com.nhnacademy.springmvc.repository.customer.CustomerRepository;
 import com.nhnacademy.springmvc.repository.customer.CustomerRepositoryImpl;
 import com.nhnacademy.springmvc.repository.inquiry.InquiryRepository;
 import com.nhnacademy.springmvc.repository.inquiry.InquiryRepositoryImpl;
+import com.nhnacademy.springmvc.service.InquiryService;
+import com.nhnacademy.springmvc.service.InquiryServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +37,7 @@ public class RootConfig {
     @Bean
     public InquiryRepository inquiryRepository() {
         InquiryRepository inquiryRepository = new InquiryRepositoryImpl();
-        inquiryRepository.registerInquiry("제목1", InquiryCategory.OTHER_INQUIRIES, "내용1", "customer1", "customer1");
+        inquiryRepository.registerInquiry("c1", InquiryCategory.OTHER_INQUIRIES, "내용1", "customer1", "customer1");
         inquiryRepository.registerInquiry("제목2", InquiryCategory.COMPLIMENT, "내용2", "customer1", "customer1");
         inquiryRepository.registerInquiry("제목3", InquiryCategory.REFUND_EXCHANGE, "내용3", "customer1", "customer1");
         inquiryRepository.registerInquiry("제목4", InquiryCategory.PROPOSAL, "내용4", "customer1", "customer1");
@@ -47,6 +50,14 @@ public class RootConfig {
 
         return answerRepository;
 
+    }
+
+    @Bean
+    public InquiryService inquiryService() {
+        InquiryService inquiryService = new InquiryServiceImpl(inquiryRepository(), answerRepository());
+        Answer answer = Answer.create(1, "답변 1", "admin", "내용", "2024-01-13");
+        inquiryService.registerAnswer(answer);
+        return inquiryService;
     }
 
 }

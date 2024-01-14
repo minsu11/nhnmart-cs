@@ -13,8 +13,8 @@ public class AnswerRepositoryImpl implements AnswerRepository {
     }
 
     @Override
-    public Answer registerAnswer(int inquiryId, String adminId, String content, String date) {
-        Answer answer = Answer.create(inquiryId, adminId, content, date);
+    public Answer registerAnswer(int inquiryId, String title, String adminId, String content, String date) {
+        Answer answer = Answer.create(inquiryId, title, adminId, content, date);
         answerMap.put(inquiryId, answer);
         return answer;
     }

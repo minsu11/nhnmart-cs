@@ -6,7 +6,7 @@ import java.util.Map;
 public interface AnswerRepository {
     boolean existsAnswer(int inquiryId);
 
-    Answer registerAnswer(int inquiryId, String adminId, String content, String date);
+    Answer registerAnswer(int inquiryId, String title, String adminId, String content, String date);
 
     Map<Integer, Answer> getAnserMap();
 }

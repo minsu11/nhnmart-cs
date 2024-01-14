@@ -4,6 +4,7 @@ import com.nhnacademy.springmvc.domain.Customer;
 import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.exception.LogoutException;
 import com.nhnacademy.springmvc.repository.customer.CustomerRepository;
+import com.nhnacademy.springmvc.repository.inquiry.InquiryRepository;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/cs")
 public class LoginController {
     private CustomerRepository customerRepository;
+    private InquiryRepository inquiryRepository;
 
-    public LoginController(CustomerRepository customerRepository) {
+    public LoginController(CustomerRepository customerRepository, InquiryRepository inquiryRepository) {
         this.customerRepository = customerRepository;
+        this.inquiryRepository = inquiryRepository;
     }
 
 
@@ -43,7 +46,6 @@ public class LoginController {
 
             Customer customer = customerRepository.getCustomer(id);
             String path = customer.getRole().equals(Role.ADMIN) ? "thymeleaf/adminForm" : "thymeleaf/customerForm";
-
             modelMap.addAttribute("id", id);
             return path;
         }
