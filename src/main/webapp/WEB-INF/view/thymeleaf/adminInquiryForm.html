@@ -14,7 +14,7 @@
     </tr>
     <tr th:each="inquiry : ${inquiryList}" th:attr="data-id=${inquiry.inquiryId}">
         <td>
-            <a th:href="@{/cs/inquiry/detail/{inquiryId}(inquiryId=${inquiry.inquiryId})}"
+            <a th:href="@{/cs/admin/answer/{inquiryId}(inquiryId=${inquiry.inquiryId})}"
                th:text="${inquiry.title}"></a>
         </td>
         <td th:text="${inquiry.inquiryCategory}"></td>

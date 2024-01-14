@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+문의 제목:<span th:text="${inquiry.title}"></span><br/>
+문의 분류:<span th:text="${inquiry.inquiryCategory}"></span><br/>
+문의 내용:<span th:text="${inquiry.postContent}"></span><br/>
+문의 날짜:<span th:text="${inquiry.date}"></span><br/>
+작성자:<span th:text="${inquiry.customerName}"/><br/>
+작성자 아이디:<span th:text="${inquiry.customerId}"/> <br/>
+파일<img th:src="${inquiry.filePath}" alt="Uploaded Image"/>
+
+<form method="post" action="/cs/admin/answer" enctype="multipart/form-data">
+    답변 내용<textarea name="content" rows="10" cols="80"></textarea><br/>
+    <input type="hidden" name="inquiryId" th:value="${inquiry.inquiryId}"/>
+    <button type="submit">답변하기</button>
+</form>
+<form method="get" action="/cs/admin">
+    <button type="submit">취소</button>
+</form>
+</body>
+</html>

@@ -13,22 +13,23 @@ public class Inquiry {
     private String date;
     private String customerName;
     private String customerId;
-    private Boolean answerCheck;
+    private boolean answerCheck;
+    private String filePath;
 
-
-    private Inquiry(int inquiryId, String title, InquiryCategory inquiryCategory, String postContent, String date, String customerName, String customerId) {
+    private Inquiry(int inquiryId, String title, InquiryCategory inquiryCategory, String postContent, String customerName, String customerId) {
         this.inquiryId = inquiryId;
         this.title = title;
         this.inquiryCategory = inquiryCategory;
         this.postContent = postContent;
-        this.date = date;
         this.customerName = customerName;
         this.customerId = customerId;
         this.answerCheck = false;
+
     }
 
-    public static Inquiry create(int inquiryId, String title, InquiryCategory inquiryCategory, String postContent, String date, String customerName, String customerId) {
-        return new Inquiry(inquiryId, title, inquiryCategory, postContent, date, customerName, customerId);
+    public static Inquiry create(int inquiryId, String title, InquiryCategory inquiryCategory, String postContent, String customerName, String customerId) {
+        return new Inquiry(inquiryId, title, inquiryCategory, postContent, customerName, customerId);
     }
+
 
 }

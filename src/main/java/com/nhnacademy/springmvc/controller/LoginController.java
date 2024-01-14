@@ -4,7 +4,6 @@ import com.nhnacademy.springmvc.domain.Customer;
 import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.exception.LogoutException;
 import com.nhnacademy.springmvc.repository.customer.CustomerRepository;
-import com.nhnacademy.springmvc.repository.inquiry.InquiryRepository;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,11 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/cs")
 public class LoginController {
     private CustomerRepository customerRepository;
-    private InquiryRepository inquiryRepository;
 
-    public LoginController(CustomerRepository customerRepository, InquiryRepository inquiryRepository) {
+    public LoginController(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
-        this.inquiryRepository = inquiryRepository;
     }
 
 

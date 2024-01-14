@@ -1,4 +1,4 @@
-package com.nhnacademy.springmvc.controller;
+package com.nhnacademy.springmvc;
 
 import com.nhnacademy.springmvc.exception.ValidationFailedException;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ public class WebControllerAdvice {
     public String handleValidationFailedException(ValidationFailedException ex, Model model) {
         log.error("Validation failed", ex);
         model.addAttribute("exception", ex);
-        return "error";
+        return "thymeleaf/error";
     }
 
     @ExceptionHandler(Exception.class)
@@ -25,7 +25,7 @@ public class WebControllerAdvice {
     public String handleException(Exception ex, Model model) {
         log.error("Internal server error", ex);
         model.addAttribute("exception", ex);
-        return "error";
+        return "thymeleaf/error";
     }
 
 

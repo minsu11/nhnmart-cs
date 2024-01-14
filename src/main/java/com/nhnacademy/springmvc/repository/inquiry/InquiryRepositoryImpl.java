@@ -30,9 +30,11 @@ public class InquiryRepositoryImpl implements InquiryRepository {
 
     @Override
     public Inquiry registerInquiry(String title, InquiryCategory inquiryCategory,
-                                   String postContent, String name, String customerId) {
+                                   String postContent, String name, String customerId, String filePath) {
         String date = dateFormatThreadLocal.get().format(new Date());
-        Inquiry inquiry = Inquiry.create(inquiryId, title, inquiryCategory, postContent, date, name, customerId);
+        Inquiry inquiry = Inquiry.create(inquiryId, title, inquiryCategory, postContent, name, customerId);
+        inquiry.setDate(date);
+        inquiry.setFilePath(filePath);
         inquiryList.add(inquiry);
         inquiryId += 1;
         return inquiry;
@@ -40,15 +42,15 @@ public class InquiryRepositoryImpl implements InquiryRepository {
 
     @Override
     public List<Inquiry> getInquiryList() {
-        return this.inquiryList;
+        return inquiryList;
     }
 
     @Override
     public List<Inquiry> matchInquiryList(String customerId) {
         List<Inquiry> matchInquiryList = new ArrayList<>();
-        for (Inquiry inquiry : inquiryList) {
-            if (inquiry.getCustomerId().equals(customerId)) {
-                matchInquiryList.add(inquiry);
+        for (int i = inquiryList.size() - 1; i >= 0; i--) {
+            if (inquiryList.get(i).getCustomerId().equals(customerId)) {
+                matchInquiryList.add(inquiryList.get(i));
             }
         }
         return matchInquiryList;

@@ -3,6 +3,7 @@ package com.nhnacademy.springmvc.controller;
 import com.nhnacademy.springmvc.domain.Customer;
 import com.nhnacademy.springmvc.domain.Role;
 import com.nhnacademy.springmvc.repository.customer.CustomerRepository;
+import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,9 +24,12 @@ public class MainFormController {
     public String viewCustomer(HttpServletRequest request,
                                HttpServletResponse response) {
         HttpSession session = request.getSession();
+        if (Objects.isNull(session.getAttribute("customerId"))) {
+            throw new NullPointerException();
+        }
         Customer customer = customerRepository.getCustomer((String) session.getAttribute("customerId"));
 
-        return customer.getRole() == Role.CUSTOMER ? "thymeleaf/customerForm" : "thymeleaf/adminInquiryForm";
+        return customer.getRole() == Role.CUSTOMER ? "thymeleaf/customerForm" : "thymeleaf/adminForm";
     }
 
 }

@@ -3,11 +3,13 @@ package com.nhnacademy.springmvc.controller;
 import com.nhnacademy.springmvc.domain.Inquiry;
 import com.nhnacademy.springmvc.service.InquiryService;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Slf4j
 @Controller
 @RequestMapping("/cs")
 public class AdminInquiryController {
@@ -20,6 +22,7 @@ public class AdminInquiryController {
     @GetMapping("/admin")
     public String viewAdminInquiryForm(ModelMap modelMap) {
         List<Inquiry> inquiryList = inquiryService.getNotAnswerInquiryList();
+
         modelMap.addAttribute("inquiryList", inquiryList);
 
         return "thymeleaf/adminInquiryForm";

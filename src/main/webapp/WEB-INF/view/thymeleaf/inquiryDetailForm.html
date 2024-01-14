@@ -11,8 +11,15 @@
 <span th:text="${inquiry.date}"></span><br/>
 <span th:text="${inquiry.customerName}"/><br/>
 <span th:text="${inquiry.customerId}"/> <br/>
-<span th:if="${inquiry.answerCheck}">답변 완료</span><br/>
+
+<img th:src="${inquiry.filePath}" alt="Uploaded Image"/>
+<br/>
 <span th:if="${!inquiry.answerCheck}">답변 없음</span><br/>
+<span th:if="${inquiry.answerCheck}">
+    답변 내용: <span th:text="${answer.content}"></span><br/>
+    작성 날짜: <span th:text="${answer.date}"></span><br/>
+    담당자 이름: <span th:text="${admin.name}"></span>
+</span><br/>
 
 </body>
 </html>
